@@ -317,6 +317,41 @@
           onmouseout="if(!this.dataset.active) this.style.color='#991b1b'">
           Les séquences de Terminale spécialité Physique-Chimie
         </button>
+
+        <!-- MENU RESSOURCES -->
+        <div style="position:relative; display:inline-block; margin-left:16px;">
+          <button id="res-main-btn"
+            onclick="toggleRessourcesMenu()"
+            style="color:#0f766e; font-size:1.3rem; font-weight:700; background:none; border:2px solid #0f766e; border-radius:8px; cursor:pointer; padding:7px 16px;"
+            onmouseover="this.style.background='#f0fdf4'"
+            onmouseout="this.style.background='none'">
+            📚 Ressources
+          </button>
+          <ul id="res-dropdown"
+            style="display:none; position:absolute; right:0; background:white; border:1px solid #e2e8f0; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.12); z-index:1000; min-width:320px; padding:6px 0; list-style:none;">
+            <li>
+              <a href="https://labolycee.org/menu-geographique-0" target="_blank"
+                style="display:flex;align-items:center;gap:12px;padding:10px 20px;text-decoration:none;color:#111;font-size:0.9rem;font-weight:500;"
+                onmouseover="this.style.color='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.color='#111';this.style.background='none'">
+                <span style="font-size:1.2rem;">📝</span> Annales (Labolycée)
+              </a>
+            </li>
+            <li style="border-top:1px solid #f1f5f9;">
+              <a href="https://ecebac.fr/listaca.php?aca=0" target="_blank"
+                style="display:flex;align-items:center;gap:12px;padding:10px 20px;text-decoration:none;color:#111;font-size:0.9rem;font-weight:500;"
+                onmouseover="this.style.color='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.color='#111';this.style.background='none'">
+                <span style="font-size:1.2rem;">🔬</span> ECE 2026
+              </a>
+            </li>
+            <li style="border-top:1px solid #f1f5f9;">
+              <a href="https://www.education.gouv.fr/reussir-au-lycee/baccalaureat-comment-se-passe-le-grand-oral-100028" target="_blank"
+                style="display:flex;align-items:center;gap:12px;padding:10px 20px;text-decoration:none;color:#111;font-size:0.9rem;font-weight:500;"
+                onmouseover="this.style.color='#2563eb';this.style.background='#eff6ff'" onmouseout="this.style.color='#111';this.style.background='none'">
+                <span style="font-size:1.2rem;">🎤</span> Comment se préparer au Grand Oral
+              </a>
+            </li>
+          </ul>
+        </div>
         <ul id="ter-dropdown"
           style="display:none; position:absolute; background:white; border:1px solid #e2e8f0; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.10); z-index:1000; min-width:380px; padding:6px 0; list-style:none; overflow-y:auto;">
           <!-- En-tête mobile : titre + fermeture -->
@@ -1224,8 +1259,16 @@
       const menu = document.getElementById('ter-menu-li');
       if (!menu.contains(e.target)) {
         document.getElementById('ter-dropdown').style.display = 'none';
+        const rd = document.getElementById('res-dropdown');
+        if (rd) rd.style.display = 'none';
       }
     });
+
+    function toggleRessourcesMenu() {
+      const dd = document.getElementById('res-dropdown');
+      dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+      document.getElementById('ter-dropdown').style.display = 'none';
+    }
   </script>
 
 </body>
