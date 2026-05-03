@@ -1188,19 +1188,19 @@
           document.getElementById('ter-dropdown-header').style.display = 'none';
           dd.querySelectorAll('li > button').forEach(b => {
             if (b.closest('#ter-dropdown-header')) return;
-            b.style.fontSize = '0.9rem';
-            b.style.padding = '6px 20px';
+            b.style.fontSize = '1.05rem';
+            b.style.padding = '11px 24px';
           });
-          dd.style.minWidth = '380px';
+          dd.style.minWidth = '420px';
           dd.style.width = 'auto';
           dd.style.borderRadius = '10px';
           // Positionner sous le bouton
           const r = btn.getBoundingClientRect();
           const navBottom = r.bottom + 4;
           dd.style.top = navBottom + 'px';
-          dd.style.bottom = '0';
-          dd.style.maxHeight = 'none';
-          dd.style.paddingBottom = '40px'; // dernier item toujours visible au-dessus de la barre des tâches
+          dd.style.bottom = 'auto';
+          dd.style.maxHeight = (window.innerHeight - navBottom - 16) + 'px';
+          dd.style.paddingBottom = '8px';
           dd.style.background = 'white';
           const ddW = dd.offsetWidth;
           let left = r.left + r.width / 2 - ddW / 2;
